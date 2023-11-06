@@ -7,6 +7,7 @@ import ImageUpload from './components/ImageUpload';
 import './App.css';
 import { AccountForm } from './components/AccountForm';
 import { AccountSelector } from './components/AccountSelector';
+import FacebookPostPreview from './components/FacebookPostPreview';
 
 const App = () => {
   const [accounts, setAccounts] = useState([]);
@@ -56,6 +57,11 @@ const App = () => {
     console.log('Image to upload:', image);
   };
   
+  // States that will be used for the preview
+  const [linkTitle, setLinkTitle] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  
+  // Post to Facebook 
   const postToFacebook = async () => {
     try {
       const response = await axios.post('http://localhost:3000/postToFacebook', {
@@ -87,7 +93,14 @@ const App = () => {
       <TextInput label="Link Description" value={linkDescription} onChange={setLinkDescription} />
       <ButtonSelect options={buttonOptions} onSelect={setSelectedButton} />
       <ImageUpload onUpload={handleImageUpload} />
-      <button className="submit-button">Post to Facebook</button>
+	  <input type="text" value={primaryText} onChange={(e) => setPrimaryText(e.target.value)} />
+       <FacebookPostPreview
+        primaryText={primaryText}
+        linkTitle={linkTitle}
+        linkDescription={linkDescription}
+        imageUrl={imageUrl}
+      />
+	  <button className="submit-button">Post to Facebook</button>
     </div>
   );
 };

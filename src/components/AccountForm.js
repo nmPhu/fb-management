@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import './AccountForm.css';
+
 export const AccountForm = () => {
   const [name, setName] = useState('');
   const [adAccountId, setAdAccountId] = useState('');

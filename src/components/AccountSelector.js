@@ -1,5 +1,6 @@
 // src/components/AccountSelector.js
 import React from 'react';
+import './AccountSelector.css';
 
 export const AccountSelector = ({ accounts, onSelect }) => {
   return (

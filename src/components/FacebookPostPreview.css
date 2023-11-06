@@ -1,0 +1,31 @@
+/* src/components/FacebookPostPreview.css */
+.facebook-post-preview {
+  border: 1px solid #ccd0d5;
+  border-radius: 8px;
+  width: 500px; /* Or the width of your choice */
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.post-content .primary-text {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.post-content .link-title {
+  color: #365899;
+  font-weight: bold;
+}
+
+.post-content .link-description {
+  color: #606770;
+  font-size: 0.9em;
+}
