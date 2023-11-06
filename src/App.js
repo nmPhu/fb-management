@@ -27,7 +27,7 @@ const App = () => {
   }, []);
 
   const handleAccountSelect = (accountId) => {
-    setSelectedAccountId(accountId);
+    console.log('Selected account ID:', accountId);
   };
   const [selectedPage, setSelectedPage] = useState('');
   const [primaryText, setPrimaryText] = useState('');
