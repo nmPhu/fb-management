@@ -1,0 +1,19 @@
+/* src/components/ButtonSelect.css */
+.button-select {
+  margin-bottom: 20px;
+}
+
+.button-option {
+  margin-right: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-option:hover {
+  background-color: #0056b3;
+}

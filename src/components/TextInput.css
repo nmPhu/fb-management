@@ -1,0 +1,15 @@
+/* src/components/TextInput.css */
+.text-input {
+  margin-bottom: 15px;
+}
+
+.text-input label {
+  margin-right: 10px;
+}
+
+.text-input input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 18px);
+}
