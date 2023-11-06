@@ -5,8 +5,29 @@ import TextInput from './components/TextInput';
 import ButtonSelect from './components/ButtonSelect';
 import ImageUpload from './components/ImageUpload';
 import './App.css';
+import { AccountForm } from './components/AccountForm';
+import { AccountSelector } from './components/AccountSelector';
 
 const App = () => {
+  const [accounts, setAccounts] = useState([]);
+  const [selectedAccountId, setSelectedAccountId] = useState(null);
+  // Load accounts from the backend on component mount
+  useEffect(() => {
+    const fetchAccounts = async () => {
+      try {
+        const response = await axios.get('/api/getAccounts');
+        setAccounts(response.data);
+      } catch (error) {
+        console.error('Error fetching accounts:', error);
+      }
+    };
+
+    fetchAccounts();
+  }, []);
+
+  const handleAccountSelect = (accountId) => {
+    setSelectedAccountId(accountId);
+  };
   const [selectedPage, setSelectedPage] = useState('');
   const [primaryText, setPrimaryText] = useState('');
   const [cardTitle, setCardTitle] = useState('');
@@ -54,6 +75,10 @@ const App = () => {
   return (
     <div className="App">
       <h1>Facebook Page Post Creator</h1>
+	  <AccountForm />
+      {accounts.length > 0 && (
+        <AccountSelector accounts={accounts} onSelect={handleAccountSelect} />
+      )}
       <FacebookPagesSelect pages={pages} onSelect={setSelectedPage} />
       <TextInput label="Primary Text" value={primaryText} onChange={setPrimaryText} />
       <TextInput label="Card Title" value={cardTitle} onChange={setCardTitle} />
